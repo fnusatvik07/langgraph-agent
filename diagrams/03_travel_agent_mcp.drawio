@@ -1,0 +1,116 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Travel Agent (MCP)" id="travel-mcp">
+    <mxGraphModel dx="1200" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1060" pageHeight="780" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="Travel Agent - tools served over MCP (HTTP)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=22;fontStyle=1;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="50" y="16" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Same agent as before - but the tools now live in a separate FastMCP server, loaded over the network" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=2;fontColor=#777777;" vertex="1" parent="1">
+          <mxGeometry x="50" y="46" width="800" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- process bands -->
+        <mxCell id="agentProc" value="Agent process - travel_agent_mcp/" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#f3f8fd;strokeColor=#6c8ebf;verticalAlign=top;align=left;spacingLeft=14;spacingTop=8;fontStyle=1;fontColor=#3b6597;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="100" y="80" width="640" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="mcpProc" value="MCP Server - travel_mcp_server/  ·  FastMCP · HTTP :8000" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#fdf2ec;strokeColor=#d97757;verticalAlign=top;align=left;spacingLeft=14;spacingTop=8;fontStyle=1;fontColor=#b25b3c;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="100" y="330" width="720" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="extBox" value="External APIs - called over HTTP" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#f7f7f7;strokeColor=#999999;verticalAlign=top;align=left;spacingLeft=14;spacingTop=8;fontStyle=1;fontColor=#666666;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="100" y="560" width="720" height="190" as="geometry" />
+        </mxCell>
+
+        <!-- user / cli / agent / openai -->
+        <mxCell id="user" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#1f3a5f;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="118" width="46" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="cli" value="Rich CLI&#10;(cli.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fbeee9;strokeColor=#d97757;fontStyle=1;fontColor=#b25b3c;" vertex="1" parent="1">
+          <mxGeometry x="135" y="120" width="110" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="agentBox" value="create_agent  ·  model ↔ tools loop" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 4;fillColor=#fdf6f3;strokeColor=#d97757;verticalAlign=top;align=center;spacingTop=6;fontStyle=1;fontColor=#b25b3c;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="100" width="250" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="model" value="model&#10;node" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontColor=#1f3a5f;" vertex="1" parent="1">
+          <mxGeometry x="308" y="132" width="100" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="toolnode" value="tools&#10;node" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontColor=#1f3a5f;" vertex="1" parent="1">
+          <mxGeometry x="425" y="132" width="100" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="openai" value="OpenAI&#10;gpt-4o-mini" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontColor=#5b3b73;" vertex="1" parent="1">
+          <mxGeometry x="600" y="105" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- inspector -->
+        <mxCell id="inspector" value="MCP Inspector&#10;(npx)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8eef7;strokeColor=#6c8ebf;fontStyle=1;fontColor=#1f3a5f;" vertex="1" parent="1">
+          <mxGeometry x="880" y="372" width="140" height="64" as="geometry" />
+        </mxCell>
+
+        <!-- tools (inside MCP server) -->
+        <mxCell id="w" value="get_weather" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7a4f00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="385" width="140" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="s" value="web_search" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7a4f00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="385" width="140" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="f" value="search_flights" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7a4f00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="385" width="150" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="h" value="search_hotels" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#7a4f00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="385" width="150" height="52" as="geometry" />
+        </mxCell>
+
+        <!-- APIs -->
+        <mxCell id="meteo" value="Open-Meteo&#10;(free)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#eef6ee;strokeColor=#82b366;fontColor=#3a5a2a;" vertex="1" parent="1">
+          <mxGeometry x="150" y="585" width="120" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="tavily" value="Tavily" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="330" y="585" width="120" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="serpf" value="SerpApi&#10;Google Flights" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="510" y="585" width="130" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="serph" value="SerpApi&#10;Google Hotels" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="690" y="585" width="130" height="84" as="geometry" />
+        </mxCell>
+
+        <!-- edges -->
+        <mxCell id="eu" value="prompt" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5a5a5a;fontColor=#444;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="user" target="cli">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ec" value="invoke / stream" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5a5a5a;fontColor=#444;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="cli" target="model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="loop1" value="tool_calls" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#5a5a5a;fontColor=#444;endArrow=block;exitX=1;exitY=0.32;entryX=0;entryY=0.32;" edge="1" parent="1" source="model" target="toolnode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="loop2" value="results · loop" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d97757;strokeWidth=2.5;fontColor=#b25b3c;fontStyle=1;endArrow=block;exitX=0;exitY=0.7;entryX=1;entryY=0.7;" edge="1" parent="1" source="toolnode" target="model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ellm" value="LLM call" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#9673a6;strokeWidth=1.5;startArrow=classic;endArrow=classic;fontColor=#5b3b73;exitX=1;exitY=0.5;entryX=0;entryY=0.7;" edge="1" parent="1" source="toolnode" target="openai">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="emcp" value="MCP · streamable HTTP&#10;(load + call tools)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d97757;strokeWidth=3;startArrow=classic;endArrow=classic;fontColor=#b25b3c;fontStyle=1;exitX=0.5;exitY=1;entryX=0.3;entryY=0;" edge="1" parent="1" source="toolnode" target="mcpProc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="einsp" value="Streamable HTTP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#d97757;fontColor=#b25b3c;endArrow=block;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="inspector" target="mcpProc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea1" value="HTTP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#888888;fontColor=#666;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="w" target="meteo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#888888;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="s" target="tavily">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#888888;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="f" target="serpf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#888888;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="h" target="serph">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
