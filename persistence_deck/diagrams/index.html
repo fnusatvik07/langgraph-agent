@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LangGraph Persistence — Diagrams</title>
+<style>
+  :root { --navy:#0B2545; --blue:#1A6FE0; --line:#d6e0ee; --bg:#f4f7fb; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+         background:var(--bg); color:var(--navy); }
+  header { padding:18px 24px; background:#fff; border-bottom:1px solid var(--line); }
+  header h1 { margin:0; font-size:18px; letter-spacing:.5px; }
+  header p { margin:4px 0 0; font-size:13px; color:#5B7799; }
+  .tabs { display:flex; flex-wrap:wrap; gap:6px; padding:14px 24px; background:#fff;
+          border-bottom:1px solid var(--line); position:sticky; top:0; z-index:10; }
+  .tab { padding:7px 13px; border:1px solid var(--line); border-radius:8px; background:#fff;
+         font-size:13px; cursor:pointer; color:var(--navy); white-space:nowrap; transition:.12s; }
+  .tab:hover { border-color:var(--blue); }
+  .tab.active { background:var(--blue); color:#fff; border-color:var(--blue); }
+  .stage { padding:28px; display:flex; justify-content:center; }
+  .stage img { max-width:100%; height:auto; background:#fff; border:1px solid var(--line);
+               border-radius:12px; box-shadow:0 6px 24px rgba(11,37,69,.08); padding:18px; }
+  .caption { text-align:center; font-size:13px; color:#5B7799; padding:0 24px 8px; }
+  kbd { background:#eef3fa; border:1px solid var(--line); border-radius:5px; padding:1px 6px; font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>LangGraph — Persistence &amp; Short-term Memory · Diagrams</h1>
+  <p>16 draw.io diagrams (light theme). Click a tab, or use <kbd>←</kbd> / <kbd>→</kbd> arrow keys.</p>
+</header>
+<div class="tabs" id="tabs"></div>
+<div class="caption" id="caption"></div>
+<div class="stage"><img id="img" alt="diagram"></div>
+
+<script>
+const pages = [
+  ["01 Architecture",            "png_light/01_Architecture.png"],
+  ["02 Threads",                 "png_light/02_Threads.png"],
+  ["03 Super-steps",             "png_light/03_Super-steps.png"],
+  ["04 Checkpoint lifecycle",    "png_light/04_Checkpoint_lifecycle.png"],
+  ["05 State evolution",         "png_light/05_State_evolution.png"],
+  ["06 Reducers",                "png_light/06_Reducers.png"],
+  ["07 StateSnapshot",           "png_light/07_StateSnapshot.png"],
+  ["08 History",                 "png_light/08_History.png"],
+  ["09 Replay",                  "png_light/09_Replay.png"],
+  ["10 Fork / update_state",     "png_light/10_Fork_-_update_state.png"],
+  ["11 Human-in-the-loop",       "png_light/11_Human-in-the-loop.png"],
+  ["12 Fault tolerance",         "png_light/12_Fault_tolerance.png"],
+  ["13 Short vs long-term",      "png_light/13_Short_vs_long-term.png"],
+  ["14 Durability modes",        "png_light/14_Durability_modes.png"],
+  ["15 Checkpointer libraries",  "png_light/15_Checkpointer_libraries.png"],
+  ["16 Mental model",            "png_light/16_Mental_model.png"],
+];
+let cur = 0;
+const tabsEl = document.getElementById('tabs');
+const imgEl = document.getElementById('img');
+const capEl = document.getElementById('caption');
+pages.forEach((p, i) => {
+  const b = document.createElement('button');
+  b.className = 'tab'; b.textContent = p[0];
+  b.onclick = () => show(i);
+  tabsEl.appendChild(b);
+});
+function show(i) {
+  cur = i;
+  imgEl.src = pages[i][1];
+  capEl.textContent = pages[i][0];
+  [...tabsEl.children].forEach((t, j) => t.classList.toggle('active', j === i));
+  tabsEl.children[i].scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'});
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') show((cur + 1) % pages.length);
+  if (e.key === 'ArrowLeft')  show((cur - 1 + pages.length) % pages.length);
+});
+show(0);
+</script>
+</body>
+</html>

@@ -15,6 +15,9 @@ travel_agent/.env
 
 # Local checkpointer databases
 *.sqlite
+*.db
+*.db-shm
+*.db-wal
 
 # Jupyter
 .ipynb_checkpoints/
