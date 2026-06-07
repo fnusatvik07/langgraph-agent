@@ -1,0 +1,5 @@
+langgraph>=1.1
+langgraph-checkpoint-sqlite>=3.0
+langchain>=0.3
+langchain-openai>=0.3
+python-dotenv>=1.0
